@@ -1,0 +1,178 @@
+/* =============================================
+   style.css — Estilos personalizados para
+   Torres del Paine Tours Landing Page
+   ============================================= */
+
+/* --- Variables de color (color, background-color) --- */
+:root {
+  --primary: #0f5132;       /* verde oscuro */
+  --dark-bg: #121212;       /* negro profundo */
+  --text: #f8f9fa;          /* blanco grisáceo */
+  --muted-bg: #343a40;      /* gris oscuro */
+  --accent: #d97706;        /* naranja */
+}
+
+/* --- Tipografía (font-family) y color base --- */
+body {
+  background-color: var(--dark-bg);
+  color: #e9ecef;
+  font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* --- Navbar, Footer y fondos oscuros (background-color) --- */
+.navbar,
+.footer,
+.bg-dark {
+  background-color: var(--dark-bg) !important;
+}
+
+/* --- Tarjetas (border, border-radius) --- */
+.card {
+  border-color: var(--muted-bg);
+  background-color: var(--dark-bg);
+}
+
+/* --- Botón primario (background-color, border, hover) --- */
+.btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #e16004;
+  border-color: #e16004;
+}
+
+/* --- Banner / Hero (position, background, flexbox) --- */
+.banner {
+  position: relative;
+  min-height: 100vh;
+  color: var(--text);
+  overflow: hidden;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.banner > .container,
+.banner .carousel-item .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Sombra de texto en banner --- */
+.banner h1,
+.banner p {
+  text-shadow: 0 0 12px rgba(0, 0, 0, .5);
+}
+
+/* --- Tarjetas de servicio (transition, hover, box-shadow) --- */
+.service-card {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .18);
+}
+
+/* --- Animación fade-in (animation, @keyframes) --- */
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Botón flotante scroll-to-top (position fixed, border-radius) --- */
+.scroll-top-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background-color: #25d366;
+  color: #fff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+  z-index: 1100;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.scroll-top-btn.show {
+  display: flex;
+}
+
+/* --- Espaciado general (margin, padding) --- */
+section {
+  scroll-margin-top: 70px;
+}
+
+/* --- Sección servicios fondo claro --- */
+#servicios {
+  background-color: #121212;
+}
+
+#servicios .card {
+  background-color: #808080;
+}
+
+/* --- Formulario estilos (border, padding) --- */
+.form-control {
+  background-color: #1e1e1e;
+  border-color: var(--muted-bg);
+  color: var(--text);
+}
+
+.form-control:focus {
+  background-color: #252525;
+  border-color: var(--accent);
+  color: var(--text);
+  box-shadow: 0 0 0 0.2rem rgba(217, 119, 6, 0.25);
+}
+
+.form-control::placeholder {
+  color: #6c757d;
+}
+
+/* --- Precio en verde (color) --- */
+.text-success {
+  color: #25d366 !important;
+}
+
+/* --- Responsive (flexbox/grid adjustments) --- */
+@media (max-width: 767.98px) {
+  .banner {
+    min-height: 70vh;
+  }
+  .display-5 {
+    font-size: 2rem;
+  }
+}
